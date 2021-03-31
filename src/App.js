@@ -12,18 +12,18 @@ export default function App() {
       <div className="App">
         <ul class="navbar">
           <li>
-            <a href="#">HOME</a>
+            <a href="https://sport-ecart.netlify.app/">HOME</a>
           </li>
           <input class="navbar-txtbx"></input>
           <div class="navbar-itm-rgt">
             <li class="navbar-list">
-              <a href="#">PRODUCTS</a>
+              <a href="https://sport-ecart.netlify.app/">PRODUCTS</a>
             </li>
             <li class="navbar-list">
-              <a href="#">CART</a>
+              <a href="https://sport-ecart.netlify.app/">CART</a>
             </li>
             <li class="navbar-list">
-              <a href="#">WISHLIST</a>
+              <a href="https://sport-ecart.netlify.app/">WISHLIST</a>
             </li>
           </div>
         </ul>

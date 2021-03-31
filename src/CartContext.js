@@ -54,6 +54,7 @@ const cartReducer = (state, action) => {
     //cartItems: cartItems.concat(item)
 
     case "ADDFROMWISHTOCART":
+      setRoute("Cart");
       return {
         ...state,
         cartItems: [...cartItems, action.item],

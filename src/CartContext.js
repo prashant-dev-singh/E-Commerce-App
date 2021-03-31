@@ -24,10 +24,7 @@ export const CartProvider = ({ children }) => {
 
 const cartReducer = (state, action) => {
   const { cartItems, wishList } = state;
-  //const { id, name, image, price, qty } = action;
 
-  //console.log(action);
-  // console.log(action.item.name);
   switch (action.type) {
     case "INCREMENT":
       return {
@@ -51,10 +48,7 @@ const cartReducer = (state, action) => {
     case "ADDTOCART":
       return { ...state, cartItems: cartItems.concat(action.item) };
 
-    //cartItems: cartItems.concat(item)
-
     case "ADDFROMWISHTOCART":
-      setRoute("Cart");
       return {
         ...state,
         cartItems: [...cartItems, action.item],
@@ -74,16 +68,3 @@ const cartReducer = (state, action) => {
       return state;
   }
 };
-
-// if (action.type === "DELETE") {
-//   const temp = [...state].filter((val) => val.id !== action.id);
-//   console.log(temp);
-//   return temp;
-// }
-
-// if (action.type === "INCREMENT") {
-//   const updatedProdList = [...state].map((curr) =>
-//     curr.id === action.id ? { ...curr, qty: curr.qty + 1 } : curr
-//   );
-
-//   return updatedProdList;

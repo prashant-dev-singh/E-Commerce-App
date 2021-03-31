@@ -1,4 +1,3 @@
-
 import { CartContext, checkItemExist } from "./CartContext";
 import { useContext } from "react";
 
@@ -34,7 +33,10 @@ const WishList = ({ setRoute }) => {
                   className="card-btn"
                   onClick={() =>
                     checkItemExist(cartItems, id)
-                      ? setRoute("Cart")
+                      ? dispatch({
+                          type: "REMOVEFROMWISHLIST",
+                          id: id,
+                        })
                       : dispatch({
                           type: "ADDFROMWISHTOCART",
                           item: { id, name, image, price, qty: 1 },

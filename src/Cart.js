@@ -47,9 +47,6 @@ const Cart = () => {
                   >
                     -
                   </button>
-                  {/* <button onClick={() => dispatch({ type: "DELETE", id: id })}>
-                    Remove
-                  </button> */}
                 </div>
               </>
             );

@@ -1,5 +1,3 @@
-import React, { useReducer } from "react";
-
 import faker from "faker";
 
 faker.seed(123);

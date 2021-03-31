@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { CartProvider } from "./CartContext";
 import "./index.css";
 import App from "./App";
-import Cart from "./Cart";
+
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(

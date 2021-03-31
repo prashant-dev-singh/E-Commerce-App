@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { CartContext } from "./CartContext";
 
@@ -10,7 +10,7 @@ const Cart = () => {
   };
 
   const { state, dispatch } = useContext(CartContext);
-  const { cartItems, wishlist } = state;
+  const { cartItems } = state;
   // console.log(state);
   return (
     <>

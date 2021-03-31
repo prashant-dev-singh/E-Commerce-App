@@ -2,7 +2,7 @@
 import { CartContext, checkItemExist } from "./CartContext";
 import { useContext } from "react";
 import { data } from "./Data";
-import WishList from "./WishList";
+
 
 const Product = ({ setRoute }) => {
   const { state, dispatch } = useContext(CartContext);

@@ -1,13 +1,12 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 
-import { data } from "./Data";
 import Cart from "./Cart";
 import Products from "./Products";
 import WishList from "./WishList";
 
 export default function App() {
   const [route, setRoute] = useState("Products");
-  //console.log(data);
+
   return (
     <>
       <div className="App">

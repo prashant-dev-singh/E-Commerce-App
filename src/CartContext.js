@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
 
 const cartReducer = (state, action) => {
   const { cartItems, wishList } = state;
-  const { id, name, image, price, qty } = action;
+  //const { id, name, image, price, qty } = action;
 
   //console.log(action);
   // console.log(action.item.name);

@@ -10,7 +10,24 @@ export default function App() {
   return (
     <>
       <div className="App">
-        <h1> E-COMMERCE APP </h1>
+        <ul class="navbar">
+          <li>
+            <a href="#">HOME</a>
+          </li>
+          <input class="navbar-txtbx"></input>
+          <div class="navbar-itm-rgt">
+            <li class="navbar-list">
+              <a href="#">PRODUCTS</a>
+            </li>
+            <li class="navbar-list">
+              <a href="#">CART</a>
+            </li>
+            <li class="navbar-list">
+              <a href="#">WISHLIST</a>
+            </li>
+          </div>
+        </ul>
+
         <button
           className="primary-button"
           style={{ margin: "1rem" }}

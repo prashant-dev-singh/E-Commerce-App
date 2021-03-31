@@ -1,26 +1,49 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useReducer, useState } from "react";
 
-function App() {
+import { data } from "./Data";
+import Cart from "./Cart";
+import Products from "./Products";
+import WishList from "./WishList";
+
+export default function App() {
+  const [route, setRoute] = useState("Products");
+  //console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Prashant Server !!!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="App">
+        <h1> E-COMMERCE APP </h1>
+        <button
+          className="primary-button"
+          style={{ margin: "1rem" }}
+          onClick={() => {
+            setRoute("Products");
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Product
+        </button>
+        <button
+          className="primary-button"
+          style={{ margin: "1rem" }}
+          onClick={() => {
+            setRoute("Cart");
+          }}
+        >
+          Cart
+        </button>
+
+        <button
+          className="primary-button"
+          style={{ margin: "1rem" }}
+          onClick={() => {
+            setRoute("WishList");
+          }}
+        >
+          WishList
+        </button>
+        {route === "Products" && <Products setRoute={setRoute} />}
+        {route === "Cart" && <Cart />}
+        {route === "WishList" && <WishList setRoute={setRoute} />}
+      </div>
+    </>
   );
 }
-
-export default App;

@@ -13,18 +13,60 @@ const ItemsInCart = {
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, ItemsInCart);
+  const [state_filter, dispatch_filter] = useReducer(reducer, {
+    sortby: null,
+    filterInstock: false,
+    filterDelivery: false,
+  });
+
   return (
     <>
-      <CartContext.Provider value={{ state: state, dispatch: dispatch }}>
+      <CartContext.Provider
+        value={{
+          state: state,
+          dispatch: dispatch,
+          state_filter: state_filter,
+          dispatch_filter: dispatch_filter,
+        }}
+      >
         {children}
       </CartContext.Provider>
     </>
   );
 };
 
+const reducer = (state, action) => {
+  // console.log(action.payload);
+
+  switch (action.type) {
+    case "SORT":
+      return {
+        ...state,
+        sortby: action.payload,
+      };
+
+    case "INSTOCK":
+      return {
+        ...state,
+        filterInstock: action.payload,
+      };
+    case "FASTDELVIERY":
+      return {
+        ...state,
+        filterDelivery: action.payload,
+      };
+
+    default:
+      break;
+  }
+};
+
 const cartReducer = (state, action) => {
   const { cartItems, wishList } = state;
+  // const { id, name, image, price, qty } = action;
 
+  //console.log(action);
+  // console.log(action.item.name);
   switch (action.type) {
     case "INCREMENT":
       return {
@@ -47,6 +89,8 @@ const cartReducer = (state, action) => {
       };
     case "ADDTOCART":
       return { ...state, cartItems: cartItems.concat(action.item) };
+
+    //cartItems: cartItems.concat(item)
 
     case "ADDFROMWISHTOCART":
       return {

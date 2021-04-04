@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
@@ -11,13 +10,21 @@ const Cart = () => {
 
   const { state, dispatch } = useContext(CartContext);
   const { cartItems } = state;
-  // console.log(state);
+
   return (
     <>
       <div className="App">
-        <h2>CART </h2>
         <h2>TOTAL : {getTotal(cartItems)}</h2>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "80%",
+            padding: "2rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {cartItems.map(({ id, name, image, price, qty }) => {
             return (
               <>
@@ -36,17 +43,26 @@ const Cart = () => {
                   </span>
                   <h3> {name} </h3>
                   <div>Rs. {price}</div>
-                  <button
+                  <span
+                    style={{ cursor: "pointer" }}
                     onClick={() => dispatch({ type: "INCREMENT", id: id })}
                   >
                     +
-                  </button>
+                  </span>
                   {qty}
-                  <button
-                    onClick={() => dispatch({ type: "DECREMENT", id: id })}
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      qty > 1
+                        ? dispatch({ type: "DECREMENT", id: id })
+                        : dispatch({ type: "DELETE", id: id })
+                    }
                   >
                     -
-                  </button>
+                  </span>
+                  {/* <button onClick={() => dispatch({ type: "DELETE", id: id })}>
+                    Remove
+                  </button> */}
                 </div>
               </>
             );

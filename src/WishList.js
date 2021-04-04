@@ -7,15 +7,22 @@ const WishList = ({ setRoute }) => {
 
   return (
     <>
-      <h2>WISHLIST</h2>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          width: "80%",
+          padding: "2rem",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {wishList.map(({ id, name, image, price }) => {
           return (
             <div className="card-prd" key={id}>
               <img src={image} className="card-img" alt="" />
               <span className="card-badge">New</span>
               <span
-                className="card-bdg-wish"
                 onClick={() =>
                   dispatch({
                     type: "REMOVEFROMWISHLIST",
@@ -23,7 +30,10 @@ const WishList = ({ setRoute }) => {
                   })
                 }
               >
-                <i className="fa icon">&#xf00d;</i>
+                <i
+                  style={{ fontSize: "24px" }}
+                  class="fa fa-close card-bdg-wish"
+                ></i>
               </span>
               <h3> {name} </h3>
               <p>Rs. {price}</p>
